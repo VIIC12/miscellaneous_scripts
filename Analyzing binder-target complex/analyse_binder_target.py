@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+
 """
 Author:     Tom U. Schlegel
-Date:       2025-04-04
-Name:       structure_analyse
-Info:       Analyse structure and get various scores.
+Date:       2025-04-07
+Name:       analyse_binder_target
+Info:       Analyse binder-target complex and get various scores.
 """
 
 import os
