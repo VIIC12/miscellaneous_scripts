@@ -26,11 +26,6 @@ cd miscellaneous_scripts
 
 Each script directory contains detailed documentation for installation and usage.
 
-```python
-# Example usage of structure_analyse_binder.py
-python structure_analyse_binder.py --input structure.pdb --chain A B
-```
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.

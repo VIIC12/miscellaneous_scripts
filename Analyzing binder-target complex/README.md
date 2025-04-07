@@ -119,6 +119,7 @@ conda create -n analyse_binder_target python=3.9 numpy freesasa && conda activat
 - Surface accessibility is calculated using FreeSASA
 - Shape complementarity is calculated using PyRosetta's ShapeComplementarityFilter
 
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
