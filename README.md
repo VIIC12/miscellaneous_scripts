@@ -11,7 +11,7 @@ This repository contains various scripts and utilities that I've developed and u
 ### Structure Analysis
 - **structure_analyse_binder.py**: Analysis tool for protein-protein interactions and binding interfaces
   - Purpose: Analyse binder-target complex (1 binder, 1-n targets) and get various scores, e.g. secondary structure, surface area, shape complementarity, etc.
-  - Usage: `structure_analyse.py [-h] --pdb PDB --binder_chain BINDER_CHAIN --target_chains TARGET_CHAINS [--fixed_residues FIXED_RESIDUES] [--write_output]`
+  - Usage: `structure_analyse.py [-h] --pdb PDB --binder_chain BINDER_CHAIN --target_chains TARGET_CHAINS [--fixed_residues FIXED_RESIDUES] [--write_output] [--delimiter DELIMITER]`
 
 
 ## 🚀 Getting Started
