@@ -12,6 +12,10 @@ The `analyse_binder_target.py` script performs detailed structural analysis of p
 - Glycan analysis
 - Disulfide bond detection
 - Clash detection
+- Radius of gyration calculation
+- Disorder prediction
+- Interface secondary structure fractions
+- Interchain contact analysis
 - And more...
 
 ## 📋 Features
@@ -48,11 +52,12 @@ python analyse_binder_target.py --pdb <input.pdb> --binder_chain <chain_id> --ta
 
 ### Optional Arguments
 - `--fixed_residues`: Space-separated list of residue numbers to check for contacts
+- `--delimiter`: Delimiter for the fixed residues (default: ',')
 - `--write_output`: Flag to write results to a JSON file
 
 ### Example
 ```bash
-python analyse_binder_target.py --pdb complex.pdb --binder_chain A --target_chains H,L --fixed_residues "10 11 14 15" --write_output
+python analyse_binder_target.py --pdb complex.pdb --binder_chain A --target_chains H,L --fixed_residues "10 11 14 15" --delimiter "," --write_output
 ```
 
 ## 📊 Output

@@ -1,9 +1,9 @@
-
+#!/usr/bin/env python3
 """
 Author:     Tom U. Schlegel
-Date:       2025-04-07
-Name:       analyse_binder_target
-Info:       Analyse binder-target complex and get various scores.
+Date:       2025-04-09
+Name:       structure_analyse
+Info:       Analyse structure and get various scores.
 """
 
 import os
@@ -351,6 +351,7 @@ def get_interface_residues(pose: pyrosetta.Pose, chain_binder: str, chain_target
                     target_residues.append(residue_str)
             except Exception as e:
                 print(f"Warning: Could not process residue at position {i + 1}: {e}")
+
     return target_residues, binder_residues
 
 def get_interface_secondary_structure_fractions(pose: pyrosetta.Pose, chain_binder: str, chain_targets: list[str], cb_dist: float=7.0) -> dict:
@@ -539,7 +540,8 @@ def main():
     parser.add_argument('--binder_chain', required=True, help="Chain ID of the binder (e.g. A)", type=str)
     parser.add_argument('--target_chains', required=True, help="Comma-separated list of target chains (e.g. H,L for antibody)", type=str)
     parser.add_argument('--fixed_residues', required=False, help="Residue number of the fixed residue (e.g. '10 11 14 15\')", type=str)
-    parser.add_argument('--write_output', action='store_true', help="Write output to PDB-Name.json file")
+    parser.add_argument('--delimiter', required=False, help="Delimiter for the fixed residues (default: ,)", type=str, default=",")
+    parser.add_argument('--write_output', required=False, action='store_true', help="Write output to PDB-Name.json file")
     parser.epilog = "Example: python structure_analyse.py --pdb input.pdb --binder_chain A --target_chains H,L --fixed_residues '10 11 14 15'"
     args = parser.parse_args()
 
@@ -607,12 +609,12 @@ def main():
             "helix": round(frac_helix_interface, 4),
             "sheet": round(frac_sheet_interface, 4),
             "loops": round(frac_loops_interface, 4),
-            "binder_residues": binder_residues,
-            "target_residues": target_residues,
+            "binder_residues": f"{args.delimiter}".join(binder_residues),
+            "target_residues": f"{args.delimiter}".join(target_residues),
             "shape_complementarity": round(shape_complementarity, 4)
         },
         "validation": {
-            "interchain_contact": interchain_contact,
+            "interchain_contact": f"{args.delimiter}".join(str(x) for x in interchain_contact),
             "clashes": clashes
         }
     }
